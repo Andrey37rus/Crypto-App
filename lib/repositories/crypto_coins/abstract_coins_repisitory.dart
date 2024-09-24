@@ -1,5 +1,34 @@
-import 'package:crypto_coins_list/repositories/crypto_coins/models/crypto_coin.dart';
+//Этот код определяет абстрактный класс AbstractCoinsRepository, который служит 
+//контрактом для работы с данными о криптовалютах. 
+//Импортируются модели данных CryptoCoin и CryptoCoinDetail, которые будут 
+//использоваться в методах абстрактного класса.
+//abstract class определяет абстрактный класс, который не может быть создан
+// напрямую, но может содержать абстрактные методы и свойства.
+//Абстрактный класс служит как контракт, определяя, какие методы должны быть реализованы в подклассах
 
-abstract class AbstractCoinsRepisitory {
+import 'package:crypto_coins_list/repositories/crypto_coins/models/crypto_coin.dart';
+import 'package:crypto_coins_list/repositories/crypto_coins/models/crypto_coin_details.dart';
+
+//Абстрактный метод getCoinsList
+//Этот метод объявлен как абстрактный, что означает, что он не имеет реализации в этом классе.
+//Метод возвращает Future<List<CryptoCoin>>, что указывает на то, что он асинхронный
+// и вернет список объектов CryptoCoin.
+//Этот метод предназначен для получения списка всех доступных криптовалют.
+
+//Абстрактный метод getCoinDetails
+//Этот метод также объявлен как абстрактный.
+//Метод принимает параметр currencyCode типа String, который представляет код криптовалюты.
+//Метод возвращает Future<CryptoCoinDetail>, что указывает на то, что он асинхронный
+// и вернет объект CryptoCoinDetail с деталями о конкретной криптовалюте.
+//Этот метод предназначен для получения детальной информации о конкретной криптовалюте.
+
+abstract class AbstractCoinsRepository {
   Future<List<CryptoCoin>> getCoinsList();
+  Future<CryptoCoinDetail> getCoinDetails(String currencyCode);
 }
+
+
+//Абстрактный класс AbstractCoinsRepository служит контрактом, определяя,
+// какие методы должны быть реализованы для работы с данными о криптовалютах.
+// Это упрощает разработку, тестирование и поддержку кода, обеспечивая четкое 
+//разделение интерфейса и реализации.
